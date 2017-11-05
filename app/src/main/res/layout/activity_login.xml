@@ -103,7 +103,7 @@
             android:layout_weight="0.40"
             android:background="@drawable/shape_register_et"
             android:hint="填写密码"
-            android:inputType="number"
+            android:inputType="textPassword"
             android:textCursorDrawable="@null"/>
     </LinearLayout>
 
