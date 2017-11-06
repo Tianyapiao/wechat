@@ -2,15 +2,12 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="@drawable/a"
+    android:background="@drawable/login"
     tools:context=".common.loginActivity">
     <!-- <include layout="@layout/titlebar"></include>-->
     <LinearLayout
-        android:id="@+id/Login_LinearLayout_Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -33,7 +30,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/Login_LinearLayout_Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -59,7 +55,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/uname"
             android:layout_width="200dp"
             android:layout_height="48dp"
             android:layout_marginLeft="5dp"
@@ -97,7 +93,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/pwd"
+            android:id="@+id/upwd"
             android:layout_width="200dp"
             android:layout_height="48dp"
             android:layout_marginLeft="5dp"
@@ -109,7 +105,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/bt_login"
+        android:id="@+id/bt_register"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/mima"
@@ -118,8 +114,8 @@
         android:layout_marginTop="76dp"
         android:background="@drawable/shape_login"
         android:gravity="center"
-        android:onClick="loginIndex"
-        android:text="登录"
+        android:onClick="RegisterIndex"
+        android:text="注册"
         android:textColor="#FFFFFF"
         android:textSize="17sp"/>
 

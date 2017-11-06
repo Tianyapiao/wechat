@@ -1,0 +1,72 @@
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@color/common_top_bar_blue"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="397dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/weixin_pressed"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.72"
+            android:text="TextView"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.06"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="374dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/contact_list_pressed"
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="154dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"/>
+    </LinearLayout>
+</LinearLayout>
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools" >
+    <group>
+        <item
+            android:id="@+id/action_group"
+            android:orderInCategory="100"
+            android:src="@drawable/weixin_pressed"
+            android:title="发起群聊"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_add"
+            android:orderInCategory="100"
+            android:title="添加好友"
+            android:src="@drawable/contact_list_pressed"
+            app:showAsAction="never"/>
+
+    </group>
+
+</menu>

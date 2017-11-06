@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.asus.grpc.common.RegisterActivity;
 import com.example.asus.grpc.common.loginActivity;
 
 
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
      * register方法
      */
     public void register(View view) {
-
+        //跳到注册页面
+        Intent intent=new Intent(MainActivity.this, RegisterActivity.class);
+        startActivity(intent);
     }
 }

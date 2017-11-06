@@ -27,6 +27,7 @@
         <activity android:name=".common.MyInfoActivity"/>
         <activity android:name=".common.ContactActivity"/>
         <activity android:name=".common.WechatActivity"/>
+        <activity android:name=".common.RegisterActivity"/>
 
     </application>
 

@@ -1,5 +1,6 @@
 package com.example.asus.grpc.common;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -7,14 +8,15 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.asus.grpc.R;
 
 import java.util.ArrayList;
@@ -31,6 +33,39 @@ public class IndexActivity extends AppCompatActivity {
     ViewPager pager = null;
     ArrayList<View> viewContainter = new ArrayList<View>();
     private ImageView add;
+
+    /**
+     * 菜单栏显示方法
+     * @param view
+     */
+    private void showPopupMenu(View view) {
+        // View当前PopupMenu显示的相对View的位置
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        // menu布局
+        popupMenu.getMenuInflater().inflate(R.menu.menu, popupMenu.getMenu());
+        // menu的item点击事件
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                //Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
+                //判断是否是添加好友
+                if ("添加好友".equals(item.getTitle())){
+                    //去到添加好友的ContactActivity
+                    Intent intent=new Intent(IndexActivity.this,ContactActivity.class);
+                    startActivity(intent);
+                }
+                return false;
+            }
+        });
+        // PopupMenu关闭事件
+        popupMenu.setOnDismissListener(new PopupMenu.OnDismissListener() {
+            @Override
+            public void onDismiss(PopupMenu menu) {
+               // Toast.makeText(getApplicationContext(), "关闭PopupMenu", Toast.LENGTH_SHORT).show();
+            }
+        });
+        popupMenu.show();
+    }
 
 
     @Override
@@ -218,7 +253,8 @@ public class IndexActivity extends AppCompatActivity {
 
                 case R.id.iv_add:
                     //弹出菜单选择
-
+                    //找到菜单
+                    showPopupMenu(add);//显示菜单栏
                     break;
             }
         }
