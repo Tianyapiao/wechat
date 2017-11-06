@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     /**
-     * login方法
+     * register方法
      */
     public void register(View view) {
 

@@ -1,6 +1,7 @@
 package com.example.asus.grpc.common;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -29,6 +30,7 @@ public class IndexActivity extends AppCompatActivity {
     //a.设置viewPaper
     ViewPager pager = null;
     ArrayList<View> viewContainter = new ArrayList<View>();
+    private ImageView add;
 
 
     @Override
@@ -44,52 +46,24 @@ public class IndexActivity extends AppCompatActivity {
         }
         //b.实例化ViewPaper
         pager = (ViewPager) this.findViewById(R.id.viewpager);
-        
-
         //1.找到图标微信
         wechat = (ImageView) findViewById(R.id.ib_weixin);
-        //设置监听事件
-        wechat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               /* Intent intent=new Intent(IndexActivity.this,WechatActivity.class);
-                startActivity(intent);*/
-                //c.跳到第一个页面
-                pager.setCurrentItem(0);
-
-            }
-        });
-
         //2.找到图标通讯录
         contact = (ImageView) findViewById(R.id.ib_contact_list);
-        //设置监听事件
-        contact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              /*  Intent intent=new Intent(IndexActivity.this,ContactActivity.class);
-                startActivity(intent);*/
-                //d.第二个页面
-                pager.setCurrentItem(1);
-            }
-        });
-
         //3.找到图标我
         me = (ImageView) findViewById(R.id.ib_profile);
-        //设置点击监听事件
-        me.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              /*  Intent intent=new Intent(IndexActivity.this,MyInfoActivity.class);
-                startActivity(intent);*/
-                //e.第三个页面
-                pager.setCurrentItem(2);
-            }
-        });
+        //4.找到加号
+        add = (ImageView) findViewById(R.id.iv_add);
 
+        //三个imageView统一设置监听事件
+        wechat.setOnClickListener(new ImageViewListener());
+        contact.setOnClickListener(new ImageViewListener());
+        me.setOnClickListener(new ImageViewListener());
+        add.setOnClickListener(new ImageViewListener());
 
         //为viewPaper设置内容
         //view是我们放进viewPaper里面的东西，要为它设置好布局，再放进去
-        View view1 = LayoutInflater.from(this).inflate(R.layout.fragment_contactlist, null);
+        View view1 = LayoutInflater.from(this).inflate(R.layout.fragment_contactlist,null);
         View view2 = LayoutInflater.from(this).inflate(R.layout.fragment_contactlist, null);
         View view3 = LayoutInflater.from(this).inflate(R.layout.activity_myinfo, null);
 
@@ -120,16 +94,18 @@ public class IndexActivity extends AppCompatActivity {
             //每次滑动的时候生成的组件
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                ((ViewPager) container).addView(viewContainter.get(position));
                 //想用到每个view里面的控件的话，在主界面上是找不到这些控件的，都是空的。
                 // 必须在instantiateItem这个函数里面指定。
-                switch (position){
+                ((ViewPager) container).addView(viewContainter.get(position));
+               switch (position){
 
                     case 0: {
                         //在第一个页面中
                         list = (ListView) findViewById(R.id.list);
+
+
                     }
-                   /* case 1: {
+                    /*case 1: {
                         //在第二个页面中
                         list = (ListView) findViewById(R.id.list);
                     }
@@ -139,6 +115,9 @@ public class IndexActivity extends AppCompatActivity {
                     }*/
                 }
                 return viewContainter.get(position);
+               /* //instantiateItem()：做了两件事，第一：将当前视图添加到container中，第二：返回当前View
+                container.addView(viewContainter.get(position));
+                return viewContainter.get(position);*/
             }
 
             @Override
@@ -194,6 +173,56 @@ public class IndexActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * 多个imageView的监听
+     *
+     */
+    private class ImageViewListener implements View.OnClickListener {
+
+        public void onClick(View v) {
+            Drawable drawable=null;
+            switch(v.getId()){
+                case R.id.ib_weixin:
+                    pager.setCurrentItem(0);
+                    //微信变颜色
+                    drawable = getResources().getDrawable(R.drawable.weixin_pressed);
+                    wechat.setImageDrawable(drawable);
+                    //其他两个取消颜色
+                    drawable = getResources().getDrawable(R.drawable.contact_list_normal);
+                    contact.setImageDrawable(drawable);
+                    drawable = getResources().getDrawable(R.drawable.profile_normal);
+                    me.setImageDrawable(drawable);
+                    break;
+                case R.id.ib_contact_list:
+                    pager.setCurrentItem(1);
+                    //通讯录变颜色
+                    drawable = getResources().getDrawable(R.drawable.contact_list_pressed);
+                    contact.setImageDrawable(drawable);
+                    //其他两个取消颜色
+                    drawable = getResources().getDrawable(R.drawable.weixin_normal);
+                    wechat.setImageDrawable(drawable);
+                    drawable = getResources().getDrawable(R.drawable.profile_normal);
+                    me.setImageDrawable(drawable);
+                    break;
+                case R.id.ib_profile:
+                    pager.setCurrentItem(2);
+                    //我变颜色
+                    drawable = getResources().getDrawable(R.drawable.profile_pressed);
+                    me.setImageDrawable(drawable);
+                    //其他两个取消颜色
+                    drawable = getResources().getDrawable(R.drawable.weixin_normal);
+                    wechat.setImageDrawable(drawable);
+                    drawable = getResources().getDrawable(R.drawable.contact_list_normal);
+                    contact.setImageDrawable(drawable);
+                    break;
+
+                case R.id.iv_add:
+                    //弹出菜单选择
+
+                    break;
+            }
+        }
+    }
 
     /**
      * listView的适配器
@@ -226,7 +255,7 @@ public class IndexActivity extends AppCompatActivity {
             }
             tv.setText("Java交流群：" + position);
             tv.setTextColor(Color.RED);
-            tv.setTextSize(20);
+            tv.setTextSize(30);
             return tv;
 
         }

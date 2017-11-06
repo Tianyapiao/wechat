@@ -151,9 +151,9 @@
             android:ellipsize="end"
             android:gravity="right"
             android:singleLine="true"
-            android:text="tingyi_tech"
+            android:text="victory666"
             android:textColor="#AAAAAA"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <View
             android:layout_width="match_parent"
@@ -279,19 +279,19 @@
             android:textColor="#353535"
             android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:layout_toRightOf="@id/tv_temp_region"
-            android:ellipsize="end"
-            android:gravity="right"
-            android:singleLine="true"
-            android:text="安徽合肥"
-            android:textColor="#AAAAAA"
-            android:textSize="14sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@id/tv_temp_region"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:singleLine="true"
+        android:text="江西吉安"
+        android:textColor="#AAAAAA"
+        android:textSize="14sp"/>
 
         <View
             android:layout_width="match_parent"
