@@ -1,4 +1,4 @@
-package com.example.asus.grpc.common;
+package com.example.asus.grpc.activity;
 
 import android.content.Intent;
 import android.graphics.Color;

@@ -22,12 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".common.loginActivity"/>
-        <activity android:name=".common.IndexActivity"/>
-        <activity android:name=".common.MyInfoActivity"/>
-        <activity android:name=".common.ContactActivity"/>
-        <activity android:name=".common.WechatActivity"/>
-        <activity android:name=".common.RegisterActivity"/>
+        <activity android:name=".activity.loginActivity"/>
+        <activity android:name=".activity.IndexActivity"/>
+        <activity android:name=".activity.MyInfoActivity"/>
+        <activity android:name=".activity.ContactActivity"/>
+        <activity android:name=".activity.WechatActivity"/>
+        <activity android:name=".activity.RegisterActivity"/>
 
     </application>
 

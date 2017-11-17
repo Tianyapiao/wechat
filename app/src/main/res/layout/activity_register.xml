@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login"
-    tools:context=".common.loginActivity">
+    tools:context=".activity.loginActivity">
     <!-- <include layout="@layout/titlebar"></include>-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout2">
 
         <ImageView
             android:layout_width="18dp"
@@ -93,7 +94,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/upwd"
+            android:id="@+id/password"
             android:layout_width="200dp"
             android:layout_height="48dp"
             android:layout_marginLeft="5dp"
@@ -118,5 +119,16 @@
         android:text="注册"
         android:textColor="#FFFFFF"
         android:textSize="17sp"/>
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_register"
+
+        android:layout_marginTop="61dp"
+        android:layout_toEndOf="@+id/linearLayout2"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="24sp"/>
 
 </RelativeLayout>

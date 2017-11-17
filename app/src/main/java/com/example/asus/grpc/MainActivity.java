@@ -7,8 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.asus.grpc.common.RegisterActivity;
-import com.example.asus.grpc.common.loginActivity;
+import com.example.asus.grpc.activity.RegisterActivity;
+import com.example.asus.grpc.activity.loginActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         //跳到登录页面
         Intent intent=new Intent(MainActivity.this, loginActivity.class);
         startActivity(intent);
+
 
     }
     /**

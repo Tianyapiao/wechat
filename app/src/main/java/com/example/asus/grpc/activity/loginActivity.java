@@ -1,4 +1,4 @@
-package com.example.asus.grpc.common;
+package com.example.asus.grpc.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,16 +16,16 @@ import com.example.asus.grpc.R;
  * Created by Asus on 2017/11/5.
  */
 
-public class RegisterActivity extends AppCompatActivity {
+public class loginActivity extends AppCompatActivity {
 
-    private Button bt_register;
+    private Button bt_login;
     private EditText name;
     private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_login);
         /**
          * 隐藏 系统自带的标题栏
          */
@@ -33,33 +33,34 @@ public class RegisterActivity extends AppCompatActivity {
         if (actionBar!=null){
             actionBar.hide();
         }
-        //找到注册按钮
-        bt_register = (Button) findViewById(R.id.bt_register);
+        //找到登录按钮
+        bt_login = (Button) findViewById(R.id.bt_login);
         //找到用户名输入框
-        name= (EditText) findViewById(R.id.uname);
-        password = (EditText) findViewById(R.id.upwd);
+        name= (EditText) findViewById(R.id.name);
+        password = (EditText) findViewById(R.id.pwd);
     }
+
 
     /**
      * 登录方法
      * @param view
      */
-    public void RegisterIndex(View view) {
+    public void loginIndex(View view) {
 
         String  userName=  name.getText().toString().trim();
         String  userPwd=  password.getText().toString().trim();
         //判断用户输入
         if (TextUtils.isEmpty(userName)||TextUtils.isEmpty(userPwd)) {
             Toast.makeText(this, "用户名或密码不能为空", Toast.LENGTH_SHORT).show();
-        } else if ("188795975061".equals(userName)){
-            Toast.makeText(this, "用户已经存在，请换个用户名再试...", Toast.LENGTH_SHORT).show();
-
-        }else {
-            Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
-            //调到登录页面
-            Intent intent=new Intent(RegisterActivity.this,loginActivity.class);
+        } else if ("18879597506".equals(userName)&&"123456".equals(userPwd)){
+            Toast.makeText(this, "正在登录...", Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(loginActivity.this,IndexActivity.class);
             startActivity(intent);
+        }else {
+            Toast.makeText(this, "用户名或密码输入错误", Toast.LENGTH_SHORT).show();
         }
 
     }
+
+
 }
