@@ -1,43 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@mipmap/wechatlogin">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.lht.paintviewdemo.MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true">
+    <com.lht.paintviewdemo.view.CustomWebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30px"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="?attr/colorButtonNormal"
-            android:onClick="login"
-            android:text="登录"
-            android:textSize="20dp"/>
-
-        <Button
-            android:id="@+id/register"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:onClick="register"
-            android:text="注册"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"/>
-    </LinearLayout>
-
-
-</RelativeLayout>
+    <ProgressBar
+        android:id="@+id/webview_content_progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="top"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:indeterminate="false"
+        android:indeterminateOnly="false"
+        android:longClickable="false"
+        android:max="100"
+        android:progressDrawable="@drawable/progress_bar_mini"/>
+</FrameLayout>
