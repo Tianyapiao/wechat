@@ -46,6 +46,7 @@ public class MainActivity extends AbstractActivity {
         };
         mWebView.setWebChromeClient(WebChromeClient);
         //mWebView.loadUrl("http://www.google.com");
+
         mWebView.loadUrl("http://www.w3school.com.cn/");
     }
 
